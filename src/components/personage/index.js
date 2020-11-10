@@ -16,6 +16,14 @@ function Personage() {
     // eye_color
   }, []);
 
+  function handleDeletePersonage(name) {
+    try {
+      setPeople(people.filter(personage => personage.name !== name));
+    } catch (error) {
+      alert("Erro ao deletar um Personagem, tente novamente!");
+    }
+  }
+
   return (
     <div className="personage-container">
       <h1>Star Wars</h1>
@@ -26,7 +34,12 @@ function Personage() {
             <strong>Personagem:</strong>
             <p>{personage.name}</p>
 
-            <button type="button">Remover</button>
+            <button
+              onClick={() => handleDeletePersonage(personage.name)}
+              type="button"
+            >
+              Remover
+            </button>
           </li>
         ))}
       </ul>
