@@ -11,9 +11,6 @@ function Personage() {
     await api.get("/").then(response => {
       setPeople(response.data.results);
     });
-    // console.log(response.data.results);
-    // name
-    // eye_color
   }, []);
 
   function handleDeletePersonage(name) {
@@ -31,8 +28,8 @@ function Personage() {
       <ul>
         {people.map(personage => (
           <li key={personage.name}>
-            <strong>Personagem:</strong>
-            <p>{personage.name}</p>
+            <strong>Personagem</strong>
+            <p style={{ color: personage.eye_color }}>{personage.name}</p>
 
             <button
               onClick={() => handleDeletePersonage(personage.name)}
